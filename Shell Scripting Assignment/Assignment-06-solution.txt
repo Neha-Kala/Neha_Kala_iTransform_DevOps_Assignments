@@ -1,0 +1,22 @@
+Write a script that evaluates and displays the following arithmetic operations:
+
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+
+Keep in mind special characters and/or escape characters as needed.\
+
+--> 
+
+#!/bin/bash
+
+echo -e "Enter a value: \c"
+read -r a
+echo -e "Enter a value: \c"
+read -r b
+echo -e "Enter a value to be multiplied: \c"
+read -r c
+
+echo "a+b value is $(($a+$b))"
+echo $(($(($a*$c))+$(($b*$c))))
+echo $(($(($a+$b))*$c))
