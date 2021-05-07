@@ -1,0 +1,15 @@
+Develop a script that creates, sets and displays two variables to the terminal when run.
+Within this script, add comments to explain what the script is doing, 
+what each variable is and, using inline comments, what each command is doing.
+
+---->
+Solution
+
+#creating variables
+var1='A'
+var2='B'
+
+#variables created
+
+echo "first variable is '$var1'"	#Display content of variable 1
+echo "second variable is '$var2'"	#Display content of variable 2

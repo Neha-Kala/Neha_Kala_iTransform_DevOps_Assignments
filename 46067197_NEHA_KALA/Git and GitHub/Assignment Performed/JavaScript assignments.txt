@@ -1,0 +1,146 @@
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git branch
+* master
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git branch js-assignments
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git checkout js-assignments
+Switched to branch 'js-assignments'
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ touch j1.js j2.js
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git add j1.js j2.js
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git commit -m "committing j1,j2"
+[js-assignments 6eb0316] committing j1,j2
+ 2 files changed, 2 insertions(+)
+ create mode 100644 j1.js
+ create mode 100644 j2.js
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git status
+On branch js-assignments
+nothing to commit, working tree clean
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ touch README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git add README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git commit
+Aborting commit due to empty commit message.
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git commit -m 'README of js'
+[js-assignments 618f5a0] README of js
+ 1 file changed, 3 insertions(+)
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git add README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git commit -m "changed line 1"
+[js-assignments cc05bbc] changed line 1
+ 1 file changed, 1 insertion(+)
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git branch
+* js-assignments
+  master
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git add README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git commit -m "changed line 1-master branch"
+[master a5c4e4c] changed line 1-master branch
+ 1 file changed, 1 insertion(+)
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git checkout js-assignments
+Switched to branch 'js-assignments'
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git add j1.js j2.js
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git commit -m "changed j1,j2"
+[js-assignments 6486847] changed j1,j2
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (js-assignments)
+$ git checkout master
+Switched to branch 'master'
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git merge js-assignments
+Auto-merging README.txt
+CONFLICT (content): Merge conflict in README.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master|MERGING)
+$ vi README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master|MERGING)
+$ git add README.txt
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master|MERGING)
+$ git commit
+[master 1b75101] Merge branch 'js-assignments'
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git branch -d js-assignments
+Deleted branch js-assignments (was 6486847).
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$ git log
+commit 1b751016ffcd731edf1c739b6885320f6429e6cd (HEAD -> master)
+Merge: a5c4e4c 6486847
+Author: Neha <nehakala02@gmail.com>
+Date:   Sat Apr 10 11:25:42 2021 +0530
+
+    Merge branch 'js-assignments'
+
+commit 6486847242b645fb2dff99ad6f73e514e639ec38
+Author: Neha <nehakala02@gmail.com>
+Date:   Sat Apr 10 11:18:48 2021 +0530
+
+    changed j1,j2
+
+commit a5c4e4ca17472a9285dcd7e6b17e947eed28c955
+Author: Neha <nehakala02@gmail.com>
+Date:   Sat Apr 10 11:16:35 2021 +0530
+
+    changed line 1-master branch
+
+commit cc05bbc9c28da49a5b42da838b54e52c23debcb8
+Author: Neha <nehakala02@gmail.com>
+Date:   Sat Apr 10 11:11:59 2021 +0530
+
+    changed line 1
+
+commit 618f5a047ebd1dd99db0b7736889deb6df4025f7
+Author: Neha <nehakala02@gmail.com>
+Date:   Sat Apr 10 11:10:58 2021 +0530
+
+    README of js
+
+
+Neha Kala@LAPTOP-MSHDUCNI MINGW64 ~/Desktop/Assignments (master)
+$
