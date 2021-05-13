@@ -1,0 +1,12 @@
+Write a script intended to iterate through an array called SERVERLIST containing at least four values (server names). 
+Display all four values to the terminal when run.
+
+-->
+Solution
+
+#! /bin/bash
+servers=( 192.xxx.xxx.2 192.xxx.xxx.3 192.xxx.xxx.4 192.xxx.xxx.5 192.xxx.xxx.6 192.xxx.xxx.7)
+
+for server in "${servers[@]}" ; do
+    echo "$server"
+done

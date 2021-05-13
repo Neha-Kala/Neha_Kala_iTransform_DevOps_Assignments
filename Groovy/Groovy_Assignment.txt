@@ -153,7 +153,7 @@ Create a list of strings. Sort them alphabetically. Sort them by length. Sort th
 
 Advanced: Sort by length, then sort equal length strings alphabetically 
 -->
-def country = ['India', 'UK', 'Hungary', 'Germany','France']
+def country = ['India', 'UK', 'Hungary', 'Thailand','France']
 alpha =  country.sort() 
 println "Sorted alphabetically - " +alpha
 a = country.sort { it.size() }
@@ -162,10 +162,6 @@ println "Sorted lengthwise Ascending - "+a
 d = country.sort { -it.size() }
 println "Sorted Descending - "+d
 
---
-Sorted alphabetically - [France, Germany, Hungary, India, UK]
-Sorted lengthwise Ascending - [UK, India, France, Germany, Hungary]
-Sorted Descending - [Germany, Hungary, France, India, UK]
 _______________________________________________________
 
 Processing a list of numbers 
@@ -228,8 +224,7 @@ Print the numbers from 0 to 15 in binary (use Java's Integer.toBinaryString()�
 all the output values have four digits. 
 -->
 for(int i = 0; i<=15 ; i++)
-println ("Integer to binary conversion $i = " +String.format("%4s", Integer.toBinaryString(i)).replace(' ', '0'))
-
+	println("Integer to binary conversion $i = " +Integer.toString(i,2))
 
 _________________________________________________________________________________________________________________________________________ 
 
@@ -238,8 +233,7 @@ Encode and decode
 Create two strings, one for a username and one for a password. Concatenate them together, separated by a colon.
 Use a method from the Groovy JDK to convert the resulting String to a byte array. Then use the encodeBase64 method on byte array to create an encoded string. 
 
-Decode the string by using the decodeBase64 method, and using the result as an argument to the String constructor. 
-Use the split method to return the original username and password. 
+Decode the string by using the decodeBase64 method, and using the result as an argument to the String constructor. Use the split method to return the original username and password. 
 -->
 def username = "Neha"
 def password = "Neha@123"
@@ -251,59 +245,14 @@ println "encoded String is : $encode"
 
 byte[] decode = encode.decodeBase64()
 println "decoded String is : $decode"
-
-
-def res = new String (decode)
-def original = res.split(':')
-println original
-
-result:
-[78, 101, 104, 97, 44, 78, 101, 104, 97, 64, 49, 50, 51]
-encoded String is : TmVoYSxOZWhhQDEyMw==
-decoded String is : [78, 101, 104, 97, 44, 78, 101, 104, 97, 64, 49, 50, 51]
-[Neha,Neha@123]
+assert str == new String (decode)
 ______________________________________________________________________________
 
 Sorting a list 
 Create a class called Course, with a String attribute called name and an int attribute called days. \
 Create a list of four course instances, where at least two have the same number of days. Sort the list by number of days.
 Then, sort the list by days, but when the days are equal, sort by name. 
--->
-class Course {
-	String name
-    int days
-	
-	def getvalues (String n , int d)
-	{
-		def name = n
-		def days = d
-		def l = [name : n, days : d]
-		
-	}
-	
-	static void main(args) {
-		Course first = new Course()
-		Course second = new Course()
-		Course third = new Course()
-		Course fourth = new Course()
-		
-def f = [first.getvalues('Roger', 1),
-		second.getvalues('Jene', 1),
-		third.getvalues('Eva', 3),
-		fourth.getvalues('Shane', 4)
-		]
-	def sorted = f.sort ({a, b -> b["days"] <=> a["days"] ?: a["days"] <=> b["days"]})
-	sorted.each { println it }
-	}
-}
 
-result:
-[name:Shane, days:4]
-[name:Eva, days:3]
-[name:Roger, days:1]
-[name:Jene, days:1]
-
-________________________________________________________________________________________________
 
 
 Operator overloading 
@@ -312,36 +261,4 @@ Implement a plus method that checks that the currencies are the same and, if
 and the correct currency. Write a similar minus method. 
 Write a MoneyTest class in Groovy that uses + and - and verifies that they work properly. 
 
- -->
- package com.test.demo
-
-class Money
-{
-	double ammount = 50
-	String currency = 'USD'
-	Money(String currency, double ammount)
-	{
-		this.ammount = ammount
-		this.currency = currency
-		
-	}
-	def plus(Money m1) 
-	{
-		return new Money(this.currency + ","+m1.currency,this.ammount+m1.ammount)
-	}
-	def minus(Money m2)
-	{
-		return new Money(this.currency + ","+m2.currency,this.ammount-m2.ammount)
-	}
-	 public static void main(args)
-	 {
-		 Money m3 = new Money("USD",60)
-		 
-		 Money m4 = new Money("USD",70)
-		 
-		 Money m5 = m3+m4
-		 println m5.ammount
-		 println m5.currency
-		 
-	 }
-}
+ 
